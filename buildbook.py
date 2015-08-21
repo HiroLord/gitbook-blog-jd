@@ -1,24 +1,15 @@
-import os, datetime, shutil
-
-if os.path.exists("output"):
-    shutil.rmtree('output')
-os.makedirs("output")
+import os, datetime
 
 for (dirpath, dirnames, filenames) in os.walk("source"):
-    if dirpath == "source":
-        continue
-    pathed = dirpath.replace("source/","")
-    if not os.path.exists("output/"+pathed):
-        os.makedirs("output/"+pathed);
     for fname in filenames:
-        if fname[-3:] != ".md":
-            continue
 
         filein = dirpath+"/"+fname
-        fileout = "output/"+pathed+"/"+fname
+        outpath = dirpath.replace("source/","")
+        fileout = "output/"+outpath+"/"+fname
 
         f = open(filein,'r')
-        filedata = f.readlines()
+        filedata = []
+        filedata.append(f.readline())
         f.close()
 
         modified = "###### Last modified: " + str(datetime.datetime.fromtimestamp(os.path.getmtime(dirpath+"/"+fname)))
@@ -28,5 +19,5 @@ for (dirpath, dirnames, filenames) in os.walk("source"):
             if linenum == 0:
                 f.write(modified+"\n")
                 continue
-            f.write(filedata[linenum])
+        f.write(filedata[linenum])
         f.close()
