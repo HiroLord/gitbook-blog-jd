@@ -1,4 +1,4 @@
-###### Last modified: 2015-08-21 10:35:45.327368
+###### Last modified on Aug 21, 2015 at 10:35 AM
 # August 21, 2015
 
 Post 1
