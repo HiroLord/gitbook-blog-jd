@@ -2,4 +2,5 @@
 
 This is the summary.
 
-* [August 19, 2015](POSTONE.md)
+* [August Posts](august/README.md)
+    * [August 21st](august/aug21.md)
